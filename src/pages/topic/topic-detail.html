@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title (click)="scrollToTop()">主题详情</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="scrollToReply()">
+        <ion-icon name="chatboxes"></ion-icon>
+        <ion-badge>{{topic.reply_count}}</ion-badge>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="share"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content #content>
+  <div class="topic" padding>
+    <h2 class="title">{{topic.title}}</h2>
+    <div class="mata">
+      <img src="{{topic.author.avatar_url}}">
+      <div class="info">
+        <p class="name">{{topic.author.loginname}}</p>
+        <p>{{topic.create_at}}</p>
+      </div>
+    </div>
+    <div class="markdown-body" [innerHTML]="topic.content"></div>
+  </div>
+  <div class="spinner-box" *ngIf="spinner">
+    <ion-spinner color="primary"></ion-spinner>
+    <p>加载中...</p>
+  </div>
+  <div class="reply" #reply [hidden]="!topic.reply_count || !topic.replies">
+    <div class="title" padding>回复&nbsp;{{topic.reply_count}}</div>
+    <ion-list class="list">
+      <ion-item *ngFor="let item of topic.replies" padding>
+        <div class="header">
+          <div class="left">
+            <ion-avatar item-left>
+              <img src="{{item.author.avatar_url }}">
+            </ion-avatar>
+            <div class="info">
+              <p class="name">{{item.author.loginname}}</p>
+              <p class="time">{{item.create_at}}</p>
+            </div>
+          </div>
+          <div class="right" [hidden]="!item.ups.length">
+            <ion-icon name="thumbs-up"></ion-icon><span>{{item.ups.length}}</span>
+          </div>
+        </div>
+        <div class="body">
+          <div class="markdown-body" [innerHTML]="item.content "></div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer>
+  <button ion-button icon-left clear>
+    <ion-icon name="heart-outline"></ion-icon>
+    收藏
+  </button>
+  <button ion-button icon-left clear>
+    <ion-icon name="chatboxes"></ion-icon>
+    回复
+  </button>
+</ion-footer>

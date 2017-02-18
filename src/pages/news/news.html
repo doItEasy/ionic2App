@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>知乎日报</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div *ngIf="hasErr">
+        <div class="loading" (click)="initData()">
+            <img src="assets/image/404.png" style="width:50%">
+        </div>
+    </div>
+    <div *ngIf="!hasErr">
+        <div *ngIf="!dataFinish" class="loading">
+            <ion-spinner name="bubbles"></ion-spinner>
+        </div>
+        <div *ngIf="dataFinish">
+            <ion-slides autoplay="2000" loop="true" pager="true">
+                <ion-slide *ngFor="let topic of zhihuList.top_stories" (click)="pushContent(topic.id)">
+                    <div class="zhihu-header" [ngStyle]="{'background-image':'url(' + topic.image + ')'}">
+                        <h2>{{topic.title}}</h2>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+            <ion-list>
+                <ion-card *ngFor="let item of zhihuList.stories" id="newsCard">
+                    <ion-item text-wrap (click)="pushContent(item.id)">
+                        <ion-thumbnail item-left>
+                            <img [src]="item.images[0]">
+                        </ion-thumbnail>
+                        <h2>{{item.title}}</h2>
+                    </ion-item>
+                </ion-card>
+
+            </ion-list>
+            <ion-infinite-scroll (ionInfinite)="getMoreZhihuList($event)">
+                <ion-infinite-scroll-content loadingText="加载中..."></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </div>
+    </div>
+</ion-content>
