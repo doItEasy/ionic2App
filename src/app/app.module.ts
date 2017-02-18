@@ -6,7 +6,7 @@ import { TopicDetailPage } from '../pages/topic/topic-detail';
 import { TopicTabPage } from '../pages/topic/topic-tab';
 import { NewsPage } from '../pages/news/news';
 import { NewsContentPage } from '../pages/news/news-content/news-content';
-import { HomePage } from '../pages/home/home';
+import { MePage } from '../pages/me/me';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ZhiHuAPI } from '../providers/zhihuAPI';
 import { CnodeAPI } from '../providers/cnodeAPI';
@@ -20,7 +20,7 @@ import { Utils } from '../providers/utils';
     TopicTabPage,
     NewsPage,
     NewsContentPage,
-    HomePage,
+    MePage,
     TabsPage
   ],
   imports: [
@@ -42,7 +42,7 @@ import { Utils } from '../providers/utils';
     TopicTabPage,
     NewsPage,
     NewsContentPage,
-    HomePage,
+    MePage,
     TabsPage
   ],
   providers: [

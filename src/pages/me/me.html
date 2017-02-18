@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="primary" style="border-bottom: 0;">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>我的</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="account-info">
+    <div class="avatar">
+      <img [src]="user.avatar" alt="Avatar">
+      <p class="username">{{ user.nickname }}</p>
+    </div>
+
+  </div>
+
+
+  <div class="options">
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col>
+          <ion-icon name="card"></ion-icon>
+          <p>模块1</p>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="plane"></ion-icon>
+          <p>模块2</p>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="ios-chatboxes-outline"></ion-icon>
+          <p>模块3</p>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="ios-clipboard-outline"></ion-icon>
+          <p>模块4</p>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
