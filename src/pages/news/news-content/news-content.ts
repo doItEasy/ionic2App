@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, MenuController, ToastController } from 'ionic-angular';
 import { ZhiHuAPI } from '../../../providers/zhihuAPI';
+import {NativePageTransitions, NativeTransitionOptions} from 'ionic-native';
+
 declare var YCQQ, Wechat;
+
 @Component({
   selector: 'page-news-content',
   templateUrl: 'news-content.html'
@@ -16,10 +19,28 @@ export class NewsContentPage {
     this.menuCtrl.swipeEnable(false);
   }
   ionViewWillLeave() {
+    let options: NativeTransitionOptions = {
+      "duration"       :  300, // in milliseconds (ms), default 400
+      "iosdelay"       :   50, // ms to wait for the iOS webview to update before animation kicks in, default 60
+      "androiddelay"   :  100
+    };
+
+    NativePageTransitions.fade(options)
+      .then( (msg) => console.log(msg) )
+      .catch( (err) => console.log(err));
     this.menuCtrl.swipeEnable(true);
   }
 
   ionViewDidLoad() {
+    let options: NativeTransitionOptions = {
+      "duration"       :  300, // in milliseconds (ms), default 400
+      "iosdelay"       :   50, // ms to wait for the iOS webview to update before animation kicks in, default 60
+      "androiddelay"   :  100
+    };
+
+    NativePageTransitions.fade(options)
+      .then( (msg) => console.log(msg) )
+      .catch( (err) => console.log(err));
     this.initData();
   }
   initData() {

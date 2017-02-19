@@ -25,10 +25,12 @@ export class NewsPage {
   }
 
   ionViewWillLeave() {
-    console.log('ionViewWillLeave HomePage');
+
     this.menuCtrl.swipeEnable(false);
   }
   ionViewDidLoad() {
+
+
     setTimeout(() => {
       this.initData();
     }, 1000)
