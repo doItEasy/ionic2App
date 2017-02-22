@@ -1,5 +1,5 @@
 import { Component, ViewChild, NgZone } from '@angular/core';
-import { Nav, LoadingController, NavParams, Content } from 'ionic-angular';
+import {Nav, LoadingController, NavParams, Content, MenuController} from 'ionic-angular';
 import { CnodeAPI } from '../../providers/cnodeAPI';
 import { Utils } from '../../providers/utils';
 import * as Q from 'q';

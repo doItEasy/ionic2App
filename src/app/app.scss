@@ -15,6 +15,10 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+.loading {
+  text-align: center;
+  margin-top: calc(20vh);
+}
 
 
 @font-face {

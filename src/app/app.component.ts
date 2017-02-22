@@ -3,7 +3,11 @@ import { Nav, Platform, ToastController, MenuController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TabsPage } from '../pages/tabs/tabs';
-import { NewsPage } from '../pages/news/news';
+import { ListPage } from '../pages/demo/nativeTransitions/list';
+import { AlphaScrollPage } from '../pages/demo/alpha-scroll/alpha-scroll';
+import { CameraPage } from '../pages/demo/camera/camera';
+
+import { FilterBarPage } from '../pages/demo/filter-bar/filter-bar';
 
 
 @Component({
@@ -23,10 +27,11 @@ export class MyApp {
       this.initializeApp();
 
       this.pages = [
-        { title: '演示一', icon: 'md-map', component: NewsPage },
-        { title: '演示二', icon: 'md-analytics', component: NewsPage },
-        { title: '演示三', icon: 'md-analytics', component: NewsPage },
-        { title: '演示四', icon: 'md-analytics', component: NewsPage }
+        { title: 'NativeTransition', icon: 'md-ionic', component: ListPage },
+        { title: '索引列表', icon: 'md-ionic', component: AlphaScrollPage },
+        { title: '搜索栏', icon: 'md-ionic', component: FilterBarPage },
+        { title: '拍照上传', icon: 'md-ionic', component: CameraPage }
+
 
       ];
 

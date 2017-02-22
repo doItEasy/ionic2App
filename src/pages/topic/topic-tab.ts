@@ -14,12 +14,10 @@ export class TopicTabPage {
 
   constructor(public menuCtrl: MenuController) {}
   ionViewDidEnter(){
-    this.menuCtrl.swipeEnable(true);
     console.log('viewDidEnter HomePage');
   }
 
   ionViewWillLeave() {
     console.log('ionViewWillLeave HomePage');
-    this.menuCtrl.swipeEnable(false);
   }
 }

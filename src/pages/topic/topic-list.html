@@ -1,6 +1,6 @@
 
 
-<ion-content #content (swipe)="swipeEvent($event)">
+<ion-content #content>
 
   <ion-refresher (ionRefresh)="refresh($event)" [pullMin]="60" [pullMax]="200">
     <ion-refresher-content

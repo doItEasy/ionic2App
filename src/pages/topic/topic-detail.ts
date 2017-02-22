@@ -1,5 +1,5 @@
 import { Component, ViewChild, NgZone, ElementRef } from '@angular/core';
-import { NavController, Content, NavParams } from 'ionic-angular';
+import { NavController, Content, NavParams, MenuController } from 'ionic-angular';
 import { CnodeAPI } from '../../providers/cnodeAPI';
 import {NativePageTransitions, NativeTransitionOptions} from 'ionic-native';
 
@@ -20,13 +20,14 @@ export class TopicDetailPage {
     private navCtrl: NavController,
     private request: CnodeAPI,
     private ngZone: NgZone,
-    private navParams: NavParams
+    private navParams: NavParams,
+    private menuCtrl: MenuController
   ) {}
 
   ionViewDidLoad() {
     let options: NativeTransitionOptions = {
       "direction"        : "left", // 'left|right|up|down', default 'left' (which is like 'next')
-      "duration"         :  300, // in milliseconds (ms), default 400
+      "duration"         :  250, // in milliseconds (ms), default 400
       "slowdownfactor"   :    -1, // overlap views (higher number is more) or no overlap (1). -1 doesn't slide at all. Default 4
       "slidePixels"      :   -1, // optional, works nice with slowdownfactor -1 to create a 'material design'-like effect. Default not set so it slides the entire page.
       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
@@ -40,11 +41,12 @@ export class TopicDetailPage {
       .then( (msg) => console.log(msg) )
       .catch( (err) => console.log(err));
     this.fetchTopic();
+    this.menuCtrl.swipeEnable(false);
   }
   ionViewWillLeave() {
     let options: NativeTransitionOptions = {
       "direction"        : "right", // 'left|right|up|down', default 'left' (which is like 'next')
-      "duration"         :  300, // in milliseconds (ms), default 400
+      "duration"         :  250, // in milliseconds (ms), default 400
       "slowdownfactor"   :    -1, // overlap views (higher number is more) or no overlap (1). -1 doesn't slide at all. Default 4
       "slidePixels"      :   -1, // optional, works nice with slowdownfactor -1 to create a 'material design'-like effect. Default not set so it slides the entire page.
       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
@@ -57,6 +59,8 @@ export class TopicDetailPage {
     NativePageTransitions.slide(options)
       .then( (msg) => console.log(msg) )
       .catch( (err) => console.log(err));
+    this.menuCtrl.swipeEnable(true);
+
   }
   scrollToTop(): Promise<any> {
     return this.content.scrollToTop();

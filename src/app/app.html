@@ -1,13 +1,14 @@
 <ion-menu type="push" [content]="content">
-    <ion-content>
 
-        <img src="assets/image/1pic.jpg" width="100%"/>
+  <ion-content >
+    <img src="assets/image/1pic.jpg" width="100%"/>
 
-        <!--<ion-list>-->
+      <ion-list padding>
         <button menuClose ion-item icon-left *ngFor="let p of pages" (click)="openPage(p)">
-            <ion-icon [name]="p.icon" color="primary" item-left></ion-icon>{{p.title}}
+          <ion-icon [name]="p.icon" color="primary" item-left></ion-icon>{{p.title}}
         </button>
-        <!--</ion-list>-->
+      </ion-list>
+
     </ion-content>
 </ion-menu>
 

@@ -11,7 +11,6 @@ export class NewsPage {
   zhihuList: any;
   dataFinish: boolean = false;
   date: Date = new Date();
-  hasErr: boolean = false;
   constructor(public navCtrl: NavController,
               public zhihuAPI: ZhiHuAPI,
               public menuCtrl: MenuController) {
@@ -25,25 +24,29 @@ export class NewsPage {
   }
 
   ionViewWillLeave() {
-
     this.menuCtrl.swipeEnable(false);
   }
-  ionViewDidLoad() {
-
-
+  ionViewDidLoad()
+  {
     setTimeout(() => {
       this.initData();
     }, 1000)
   }
   initData() {
-    this.hasErr = false;
     this.dataFinish = false;
     this.zhihuAPI.getZhihuLatest().then(res => {
       this.zhihuList = res;
       this.dataFinish = true;
     }, err => {
-      this.hasErr = true;
     })
+  }
+  refresh(refresher) {
+    this.zhihuAPI.getZhihuLatest().then(res => {
+      this.zhihuList = res;
+      this.dataFinish = true;
+      refresher.complete();
+    }, err => {
+    });
   }
   getMoreZhihuList(event) {
     let year = this.date.getFullYear();
