@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from 'ionic-native';
 
+
 /*
   Generated class for the CurlPage page.
 
@@ -39,5 +40,19 @@ export class CurlPage {
         .then( (msg) => console.log(msg) )
         .catch( (err) => console.log(err));
   }
+
+
+  share(){
+    var icon = 'https://github.com/zhaolin0801/cordova-sharesdk-demo/blob/master/www/img/Wechat-QRcode.jpeg?raw=true';
+    var title = '这是网页的标题';
+    var text = '这是网页的内容，android未签名只能分享单张图片到朋友圈';
+    var url = 'http://carhot.cn/articles/1';
+    var shareInfo = {icon:icon, title:title, text:text, url:url};
+
+    sharesdk.share(ShareSDK.PlatformType.WechatSession, ShareSDK.ShareType.WebPage, shareInfo,
+      function(success){},
+      function(fail){});
+  }
+
 
 }

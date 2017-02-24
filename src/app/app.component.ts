@@ -1,6 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
 import { Nav, Platform, ToastController, MenuController } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { StatusBar, Splashscreen} from 'ionic-native';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { ListPage } from '../pages/demo/nativeTransitions/list';
@@ -25,7 +25,6 @@ export class MyApp {
               public menuCtrl: MenuController) {
     platform.ready().then(() => {
       this.initializeApp();
-
       this.pages = [
         { title: 'NativeTransition', icon: 'md-ionic', component: ListPage },
         { title: '索引列表', icon: 'md-ionic', component: AlphaScrollPage },

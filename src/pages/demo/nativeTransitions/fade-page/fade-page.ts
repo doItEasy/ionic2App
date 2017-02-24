@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from 'ionic-native';
+import aa from 'moment';
 
-/*
-  Generated class for the FadePage page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+
 @Component({
   selector: 'page-fade-page',
   templateUrl: 'fade-page.html'
 })
 export class FadePage {
-
+  date:any;
   constructor(public navCtrl: NavController) {}
 
   ionViewDidLoad() {
@@ -26,6 +23,13 @@ export class FadePage {
       NativePageTransitions.fade(options)
         .then( (msg) => console.log(msg) )
         .catch( (err) => console.log(err));
+
+
+    this.date = aa().add(1, 'd').format('YYYY年MM月DD日')
+
+    console.log(this.date)
+
+
   }
 
   ionViewWillLeave() {

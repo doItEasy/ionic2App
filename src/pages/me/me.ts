@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { Toast } from 'ionic-native';
 
 import { NavController, MenuController, Slides } from 'ionic-angular';
 
@@ -20,7 +21,7 @@ export class MePage {
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MePage');
+    Toast.showLongBottom("I'm a toast");
   }
 
   ionViewDidEnter(){
