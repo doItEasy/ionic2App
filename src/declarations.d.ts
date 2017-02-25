@@ -16,3 +16,4 @@ declare module '*';
 
 declare var sharesdk: any;
 declare var ShareSDK: any;
+declare var toThousands;

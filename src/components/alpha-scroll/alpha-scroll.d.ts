@@ -1,6 +1,6 @@
 import { OnInit, OnChanges, OnDestroy, ElementRef, TemplateRef } from '@angular/core';
 import { Content } from 'ionic-angular';
-import { OrderBy } from '../../pipes/order-by';
+import { OrderBy } from '../../providers/order-by';
 export declare class AlphaScroll implements OnInit, OnChanges, OnDestroy {
     private elementRef;
     private orderBy;

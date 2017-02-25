@@ -21,7 +21,8 @@ export class MePage {
 
 
   ionViewDidLoad() {
-    Toast.showLongBottom("I'm a toast");
+    console.log(toThousands(10000));
+    // Toast.showLongBottom("I'm a toast");
   }
 
   ionViewDidEnter(){
@@ -37,4 +38,8 @@ export class MePage {
 
 
 
+
+
 }
+
+
